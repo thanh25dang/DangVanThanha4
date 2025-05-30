@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm số lần bấm nút</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    #counter {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #clickButton {
+      font-size: 20px;
+      padding: 10px 30px;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .even {
+      background-color: green;
+    }
+
+    .odd {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="counter">Số lần bấm: 0</div>
+  <button id="clickButton" class="even">Click</button>
+
+  <script>
+    let count = 0;
+    const counterDiv = document.getElementById('counter');
+    const button = document.getElementById('clickButton');
+
+    button.addEventListener('click', () => {
+      count++;
+      counterDiv.textContent = `Số lần bấm: ${count}`;
+
+      if (count % 2 === 0) {
+        button.classList.remove('odd');
+        button.classList.add('even');
+      } else {
+        button.classList.remove('even');
+        button.classList.add('odd');
+      }
+    });
+  </script>
+
+</body>
+</html>
